@@ -129,7 +129,7 @@ TVanalyser/
 ├── theme_classifier/          # Phase 1 - Theme analysis
 ├── utils/                     # Shared utilities and data loaders
 ├── vaishnaviiii34/           # Model checkpoints and training artifacts
-└── gradio_app.py             # Main application entry point
+└── app.py                    # Main application entry point
 ```
 
 ## 🚀 Getting Started
@@ -148,7 +148,7 @@ TVanalyser/
 
 ### Running the Application
 ```bash
-python gradio_app.py
+python app.py
 ```
 
 ## 📈 Key Features
