@@ -31,11 +31,11 @@ try:
     character_chatbot = GeminiChatBot()
     chatbot_available = character_chatbot.available
     if chatbot_available:
-        print("✅ Gemini chatbot initialized successfully!")
+        print("Gemini chatbot initialized successfully!")
     else:
-        print("❌ Gemini chatbot failed to initialize")
+        print("Gemini chatbot failed to initialize")
 except Exception as e:
-    print(f"❌ Error initializing chatbot: {e}")
+    print(f"Error initializing chatbot: {e}")
     chatbot_available = False
     character_chatbot = None
 
@@ -87,198 +87,15 @@ def classify_text(text_classifcation_model, text_classifcation_data_path, text_t
     return output[0]
 
 def main():
-    # Custom CSS with background image and dark theme
-    custom_css = """
-        .gradio-container {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-            background-size: cover !important;
-            background-repeat: no-repeat !important;
-            background-attachment: fixed !important;
-            background-position: center !important;
-        }
-        .navbar { 
-            margin-bottom: 20px; 
-            background: rgba(30, 30, 30, 0.9) !important;
-            border-radius: 10px;
-            padding: 15px;
-            border: 1px solid #444;
-        }
-        .hero-section { 
-            margin: 20px 0; 
-            background: rgba(30, 30, 30, 0.9) !important;
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid #444;
-        }
-        .footer { 
-            margin-top: 30px; 
-            background: rgba(30, 30, 30, 0.9) !important;
-            border-radius: 10px;
-            padding: 15px;
-            border: 1px solid #444;
-        }
-        .section { 
-            background: rgba(30, 30, 30, 0.9) !important; 
-            padding: 25px; 
-            border-radius: 15px; 
-            margin: 20px 0; 
-            border: 1px solid #444;
-        }
-        /* Hero image styling - Square and modern */
-        .hero-main-image img {
-            border-radius: 10px !important;
-            border: 3px solid #FF8C00 !important;
-            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3) !important;
-            object-fit: cover !important;
-            width: 100% !important;
-            height: 350px !important;
-        }
-        /* Improved text styling */
-        h1, h2, h3, h4, h5, h6 {
-            color: #f0f0f0 !important;
-            font-family: 'Arial', sans-serif !important;
-        }
-        p, label {
-            color: #e0e0e0 !important;
-            font-family: 'Arial', sans-serif !important;
-        }
-        .input-text, .textarea, .input-number {
-            background: rgba(50, 50, 50, 0.8) !important;
-            color: #ffffff !important;
-            border: 1px solid #555 !important;
-            border-radius: 8px !important;
-            padding: 12px !important;
-        }
-        .button-primary {
-            background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d) !important;
-            color: white !important;
-            border: none !important;
-            border-radius: 8px !important;
-            padding: 12px 24px !important;
-            font-weight: 600 !important;
-        }
-        .button-secondary {
-            background: rgba(60, 60, 60, 0.9) !important;
-            color: #f0f0f0 !important;
-            border: 1px solid #555 !important;
-            border-radius: 8px !important;
-        }
-        .tab-button {
-            background: rgba(50, 50, 50, 0.8) !important;
-            color: #f0f0f0 !important;
-            border: 1px solid #555 !important;
-            border-radius: 8px 8px 0 0 !important;
-        }
-        .tab-button.selected {
-            background: rgba(80, 80, 80, 0.9) !important;
-            border-bottom: 3px solid #FF8C00 !important;
-        }
-        
-        /* CHATBOT SPECIFIC STYLING FIXES */
-        /* Main chatbot container - increased height */
-        .gr-chatbot {
-            min-height: 500px !important;
-            height: 500px !important;
-            max-height: 500px !important;
-            background: rgba(40, 40, 40, 0.9) !important;
-            border: 1px solid #555 !important;
-            border-radius: 10px !important;
-            padding: 10px !important;
-        }
-        
-        /* Message container - increased height and better spacing */
-        .gr-chat-message {
-            overflow-y: auto !important;
-            padding: 10px !important;
-            margin-bottom: 1px !important;
-        }
-        
-        /* Individual messages - better spacing and wrapping */
-        .message {
-            margin: 8px 0 !important;
-            padding: 12px !important;
-            border-radius: 12px !important;
-            max-width: 85% !important;
-            word-wrap: break-word !important;
-            white-space: pre-wrap !important;
-        }
-        
-        .message.user {
-            background: rgba(60, 90, 120, 0.9) !important;
-            margin-left: auto !important;
-            margin-right: 0 !important;
-        }
-        
-        .message.bot {
-            background: rgba(90, 60, 90, 0.9) !important;
-            margin-left: 0 !important;
-            margin-right: auto !important;
-        }
-        
-        /* Input area - better spacing */
-        .gr-chat-input {
-            min-height: 80px !important;
-            margin-top: 10px !important;
-        }
-        
-        /* Examples row - better spacing */
-        .gr-examples {
-            margin-top: 15px !important;
-            margin-bottom: 5px !important;
-        }
-        
-        /* General form styling */
-        .gr-box {
-            background: rgba(50, 50, 50, 0.8) !important;
-            color: #ffffff !important;
-            border: 1px solid #555 !important;
-        }
-        .gr-form {
-            background: rgba(30, 30, 30, 0.7) !important;
-        }
-        .panel {
-            background: rgba(30, 30, 30, 0.9) !important;
-            border: 1px solid #444 !important;
-        }
-        
-        /* Reduce spacing around the chatbot section */
-        #chat-section {
-            padding: 15px !important;
-            margin: 10px 0 !important;
-        }
-        
-        /* Tab styling for character selection */
-        .tab {
-            padding: 5px !important;
-        }
-        
-        /* Fix for Hugging Face Spaces embedding - ensure full scroll */
-        .gradio-container {
-            min-height: 100vh !important;
-            max-height: none !important;
-            overflow-y: visible !important;
-            height: auto !important;
-        }
-        
-        /* Ensure main app body is scrollable and starts at top */
-        body {
-            overflow-y: auto !important;
-            height: auto !important;
-        }
-        
-        /* Make main container expand to full content */
-        .main {
-            height: auto !important;
-            min-height: 100vh !important;
-        }
-        
-        /* Ensure all sections are visible */
-        .contain {
-            max-width: 100% !important;
-            height: auto !important;
-        }
-    """
-    with gr.Blocks(title="Naruto TV Analyzer", css=custom_css) as iface:
+    # Use Gradio's built-in theme instead of custom CSS for HF Spaces compatibility
+    theme = gr.themes.Soft(
+        primary_hue="orange",
+        secondary_hue="red",
+        neutral_hue="slate",
+        font=("Arial", "sans-serif")
+    )
+    
+    with gr.Blocks(title="Naruto TV Analyzer", theme=theme) as iface:
         
         # Navigation Bar
         create_navbar()
@@ -292,7 +109,7 @@ def main():
         # Theme Classification Section
         with gr.Row(elem_id="theme-section", elem_classes="section"):
             with gr.Column():
-                gr.HTML("<h2 style='color: #FF8C00 !important;'>🎭 Theme Classification</h2>")
+                gr.HTML("<h2 style='color: #FF8C00 !important;'>Theme Classification</h2>")
                 with gr.Row():
                     with gr.Column():
                         plot = gr.BarPlot()
@@ -319,7 +136,7 @@ def main():
         # Character Network Section
         with gr.Row(elem_id="network-section", elem_classes="section"):
             with gr.Column():
-                gr.HTML("<h2 style='color: #FF8C00 !important;'>👥 Character Network</h2>")
+                gr.HTML("<h2 style='color: #FF8C00 !important;'>Character Network</h2>")
                 with gr.Row():
                     with gr.Column():
                         network_html = gr.HTML()
@@ -342,7 +159,7 @@ def main():
         # Text Classification with LLMs
         with gr.Row(elem_id="jutsu-section", elem_classes="section"):
             with gr.Column():
-                gr.HTML("<h2 style='color: #FF8C00 !important;'>🌀 Jutsu Classification</h2>")
+                gr.HTML("<h2 style='color: #FF8C00 !important;'>Jutsu Classification</h2>")
                 with gr.Row():
                     with gr.Column():
                         text_classification_output = gr.Textbox(label="Classification Result", lines=3)
@@ -369,14 +186,14 @@ def main():
        # Character Chatbot Section
         with gr.Row(elem_id="chat-section", elem_classes="section"):
             with gr.Column():
-                gr.HTML("<h2 style='color: #FF8C00 !important;'>🗣️ Chat with Naruto Characters</h2>")
+                gr.HTML("<h2 style='color: #FF8C00 !important;'>Chat with Naruto Characters</h2>")
                 if not chatbot_available:
-                    gr.Warning("⚠️ Please add GEMINI_API_KEY=your_key_here to your .env file")
+                    gr.Warning("Please add GEMINI_API_KEY=your_key_here to your .env file")
                 else:
-                    gr.Info("✅ Chat with Naruto, Sasuke, or Sakura!")
+                    gr.Info("Chat with Naruto, Sasuke, or Sakura!")
                 
                 # Separate chat interfaces for each character
-                with gr.Tab("🍥 Naruto"):
+                with gr.Tab("Naruto"):
                     def chat_naruto(message, history):
                         return character_chatbot.chat(message, history, "naruto")
                     
@@ -391,7 +208,7 @@ def main():
                         title="Chat with Naruto"
                     )
                 
-                with gr.Tab("👁️ Sasuke"):
+                with gr.Tab("Sasuke"):
                     def chat_sasuke(message, history):
                         return character_chatbot.chat(message, history, "sasuke")
                     
@@ -406,7 +223,7 @@ def main():
                         title="Chat with Sasuke"
                     )
                 
-                with gr.Tab("💕 Sakura"):
+                with gr.Tab("Sakura"):
                     def chat_sakura(message, history):
                         return character_chatbot.chat(message, history, "sakura")
                     

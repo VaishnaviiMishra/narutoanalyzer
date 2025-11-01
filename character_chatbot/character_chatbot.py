@@ -16,13 +16,13 @@ class GeminiChatBot:
                 # List available models for debugging
                 try:
                     available_models = genai.list_models()
-                    print("\n📋 Available Gemini models with generateContent support:")
+                    print("\nAvailable Gemini models with generateContent support:")
                     for model in available_models:
                         if 'generateContent' in model.supported_generation_methods:
-                            print(f"   ✓ {model.name}")
+                            print(f"   - {model.name}")
                     print()  # Empty line for readability
                 except Exception as list_error:
-                    print(f"⚠️ Could not list models: {list_error}")
+                    print(f"Could not list models: {list_error}")
                 
                 # Try multiple model names in order of preference
                 # Updated with latest stable model names (2024)
@@ -34,19 +34,19 @@ class GeminiChatBot:
                 ]
                 
                 model_loaded = False
-                print("🔍 Trying to load Gemini model...")
+                print("Trying to load Gemini model...")
                 for model_name in model_names:
                     try:
                         print(f"   Attempting: {model_name}...", end=" ")
                         self.model = genai.GenerativeModel(model_name)
                         # Test if model is accessible
                         self.available = True
-                        print(f"✅ SUCCESS!")
-                        print(f"\n🎉 Chatbot ready with model: {model_name}\n")
+                        print(f"SUCCESS!")
+                        print(f"\nChatbot ready with model: {model_name}\n")
                         model_loaded = True
                         break
                     except Exception as model_error:
-                        print(f"❌ Failed")
+                        print(f"Failed")
                         # Only print full error for debugging if needed
                         if "404" in str(model_error):
                             print(f"      (Model not found)")
@@ -56,9 +56,9 @@ class GeminiChatBot:
                 
                 if not model_loaded:
                     print("\n" + "="*60)
-                    print("❌ ERROR: Could not load any Gemini model!")
+                    print("ERROR: Could not load any Gemini model!")
                     print("="*60)
-                    print("📝 Solutions:")
+                    print("Solutions:")
                     print("   1. Check if your API key is valid")
                     print("   2. Look at the 'Available Gemini models' list above")
                     print("   3. Update model_names in character_chatbot.py to match")
@@ -67,14 +67,14 @@ class GeminiChatBot:
                     self.available = False
                     
             except Exception as e:
-                print(f"❌ Error configuring Gemini: {e}")
+                print(f"Error configuring Gemini: {e}")
                 self.available = False
         else:
-            print("❌ Gemini API key not found in .env file")
+            print("Gemini API key not found in .env file")
     
     def chat(self, message, history, character="naruto"):
         if not self.available:
-            return "❌ Gemini chatbot not available. Please check your API key."
+            return "Gemini chatbot not available. Please check your API key."
         
         try:
             # Enhanced character-specific prompts with detailed personalities
@@ -156,4 +156,4 @@ class GeminiChatBot:
             return response_text
             
         except Exception as e:
-            return f"❌ Error: {str(e)}"
+            return f"Error: {str(e)}"

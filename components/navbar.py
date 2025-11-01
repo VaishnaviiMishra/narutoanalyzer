@@ -29,7 +29,7 @@ def create_navbar():
                         justify-content: center;
                         border: 2px solid #FF8C00;
                         font-size: 20px;
-                    ">🍥</div>
+                    ">N</div>
                     <h1 style="
                         margin: 0; 
                         color: white; 
@@ -52,7 +52,7 @@ def create_navbar():
                         transition: all 0.3s ease;
                         background: rgba(0, 0, 0, 0.3);
                     " onmouseover="this.style.background='rgba(255, 140, 0, 0.3)'; this.style.transform='translateY(-2px)'" 
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">🎭 Themes</a>
+                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">Themes</a>
                     
                     <a href="#network-section" style="
                         color: #FFD700; 
@@ -63,7 +63,7 @@ def create_navbar():
                         transition: all 0.3s ease;
                         background: rgba(0, 0, 0, 0.3);
                     " onmouseover="this.style.background='rgba(26, 42, 108, 0.3)'; this.style.transform='translateY(-2px)'" 
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">👥 Network</a>
+                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">Network</a>
                     
                     <a href="#jutsu-section" style="
                         color: #FFD700; 
@@ -74,7 +74,7 @@ def create_navbar():
                         transition: all 0.3s ease;
                         background: rgba(0, 0, 0, 0.3);
                     " onmouseover="this.style.background='rgba(106, 13, 173, 0.3)'; this.style.transform='translateY(-2px)'" 
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">🌀 Jutsu</a>
+                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">Jutsu</a>
                     
                     <a href="#chat-section" style="
                         color: #FFD700; 
@@ -85,7 +85,7 @@ def create_navbar():
                         transition: all 0.3s ease;
                         background: rgba(0, 0, 0, 0.3);
                     " onmouseover="this.style.background='rgba(231, 84, 128, 0.3)'; this.style.transform='translateY(-2px)'" 
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">🗣️ Chat</a>
+                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">Chat</a>
                     
                     <a href="#about-section" style="
                         color: #FFD700; 
@@ -96,7 +96,7 @@ def create_navbar():
                         transition: all 0.3s ease;
                         background: rgba(0, 0, 0, 0.3);
                     " onmouseover="this.style.background='rgba(255, 140, 0, 0.3)'; this.style.transform='translateY(-2px)'" 
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">📖 About</a>
+                    onmouseout="this.style.background='rgba(0, 0, 0, 0.3)'; this.style.transform='none'">About</a>
                 </div>
             </div>
             """)

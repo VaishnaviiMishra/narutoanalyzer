@@ -102,7 +102,7 @@ def create_hero_section():
                         text-align: center;
                     " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 5px 15px rgba(255, 140, 0, 0.2)'" 
                     onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
-                        <h3 style="color: #FFD700; margin: 0 0 10px 0; font-size: 1.1em;">🎭 Theme Analysis</h3>
+                        <h3 style="color: #FFD700; margin: 0 0 10px 0; font-size: 1.1em;">Theme Analysis</h3>
                         <p style="margin: 0; color: #FFFFFF; font-size: 0.9em;">Discover underlying themes</p>
                     </div>
                     <div style="
@@ -114,7 +114,7 @@ def create_hero_section():
                         text-align: center;
                     " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 5px 15px rgba(255, 140, 0, 0.2)'" 
                     onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
-                        <h3 style="color: #FFD700; margin: 0 0 10px 0; font-size: 1.1em;">👥 Network</h3>
+                        <h3 style="color: #FFD700; margin: 0 0 10px 0; font-size: 1.1em;">Network</h3>
                         <p style="margin: 0; color: #FFFFFF; font-size: 0.9em;">Character relationships</p>
                     </div>
                     <div style="
@@ -126,7 +126,7 @@ def create_hero_section():
                         text-align: center;
                     " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 5px 15px rgba(255, 140, 0, 0.2)'" 
                     onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
-                        <h3 style="color: #1a2a6c; margin: 0 0 10px 0; font-size: 1.1em;">🌀 Jutsu AI</h3>
+                        <h3 style="color: #1a2a6c; margin: 0 0 10px 0; font-size: 1.1em;">Jutsu AI</h3>
                         <p style="margin: 0; color: #1a2a6c; font-size: 0.9em;">Classify techniques</p>
                     </div>
                     <div style="
@@ -138,7 +138,7 @@ def create_hero_section():
                         text-align: center;
                     " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 5px 15px rgba(255, 140, 0, 0.2)'" 
                     onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
-                        <h3 style="color: #FFFFFF; margin: 0 0 10px 0; font-size: 1.1em;">🗣️ AI Chat</h3>
+                        <h3 style="color: #FFFFFF; margin: 0 0 10px 0; font-size: 1.1em;">AI Chat</h3>
                         <p style="margin: 0; color: #FFFFFF; font-size: 0.9em;">Talk with characters</p>
                     </div>
                 </div>
