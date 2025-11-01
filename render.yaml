@@ -1,0 +1,57 @@
+services:
+  - type: web
+    name: naruto-tv-analyzer
+    runtime: python
+    plan: free  # Change to 'starter' or higher for production
+    
+    # Build configuration
+    buildCommand: pip install -r requirements.txt
+    
+    # Start command
+    startCommand: python app.py
+    
+    # Environment configuration
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      
+      - key: PORT
+        value: 10000  # Render's default, but will use assigned port
+      
+      # Required: Gemini API Key for chatbot functionality
+      # Set this in Render dashboard: Settings > Environment
+      - key: GEMINI_API_KEY
+        sync: false  # Must be set manually in Render dashboard
+      
+      # Optional: Hugging Face token for private models
+      # Only needed if using private/gated models
+      - key: huggingface_token
+        sync: false  # Must be set manually in Render dashboard
+    
+    # Health check configuration
+    healthCheckPath: /
+    
+    # Auto-deploy on git push
+    autoDeploy: true
+    
+    # Region (choose closest to your users)
+    # Options: oregon, frankfurt, singapore, ohio
+    region: oregon
+    
+    # Disk configuration (if you need persistent storage)
+    # disk:
+    #   name: data
+    #   mountPath: /opt/render/project/src/data
+    #   sizeGB: 1
+
+# Optional: Background worker for async tasks
+# Uncomment if you need background processing
+# - type: worker
+#   name: naruto-analyzer-worker
+#   runtime: python
+#   buildCommand: pip install -r requirements.txt
+#   startCommand: python worker.py  # Create this file for background tasks
+#   envVars:
+#     - key: PYTHON_VERSION
+#       value: 3.11
+

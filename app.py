@@ -241,10 +241,21 @@ def main():
 
         create_footer() 
 
-        # Launch with proper settings for Hugging Face Spaces
+        # Launch with proper settings for deployment platforms
+        # Get port from environment variable (used by Render, Heroku, etc.)
+        port = int(os.getenv("PORT", 7860))
+        
+        print(f"\n{'='*60}")
+        print(f"🚀 Naruto TV Analyzer is starting...")
+        print(f"{'='*60}")
+        print(f"📍 Local URL:   http://localhost:{port}")
+        print(f"📍 Network URL: http://127.0.0.1:{port}")
+        print(f"{'='*60}\n")
+        
         iface.launch(
-            server_name="0.0.0.0",
-            share=False,  # Not needed on Hugging Face Spaces
+            server_name="0.0.0.0",  # Bind to all interfaces for deployment
+            server_port=port,  # Use PORT from environment or default to 7860
+            share=False,
             inbrowser=False  # Don't auto-open browser on server
         )
 
