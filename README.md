@@ -1,7 +1,7 @@
 ---
 title: Naruto TVanalyser
 emoji: 🍥
-colorFrom: orange
+colorFrom: yellow
 colorTo: red
 sdk: gradio
 sdk_version: 4.0.0
