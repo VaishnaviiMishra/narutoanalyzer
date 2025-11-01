@@ -251,6 +251,23 @@ def main():
         .tab {
             padding: 5px !important;
         }
+        
+        /* Fix for Hugging Face Spaces embedding - ensure full scroll */
+        .gradio-container {
+            min-height: 100vh !important;
+            overflow-y: auto !important;
+        }
+        
+        /* Ensure main app body is scrollable */
+        body {
+            overflow-y: auto !important;
+            min-height: 100vh !important;
+        }
+        
+        /* Fix iframe height issue on HF Spaces */
+        .contain {
+            max-width: 100% !important;
+        }
     """
     with gr.Blocks(title="Naruto TV Analyzer", css=custom_css) as iface:
         
@@ -398,7 +415,13 @@ def main():
 
         create_footer() 
 
-        iface.launch(share=True, server_name="0.0.0.0")
+        # Launch with proper height settings for Hugging Face Spaces
+        # Remove share=True (not needed on HF), set server settings
+        iface.launch(
+            server_name="0.0.0.0",
+            height=1500,  # Ensure full app is visible
+            share=False   # Not needed on Hugging Face Spaces
+        )
 
 if __name__ == '__main__':
     main()
