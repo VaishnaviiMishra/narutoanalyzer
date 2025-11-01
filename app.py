@@ -8,23 +8,6 @@ from dotenv import load_dotenv
 # Suppress known deprecation warnings from transformers library
 warnings.filterwarnings("ignore", category=FutureWarning, module="transformers")
 
-# Auto-download spaCy model if not present (needed for Character Network)
-# COMMENTED OUT: Only needed if processing new subtitle files from scratch
-# Since we're using pre-computed stub files (ner_output.csv), this is not required
-# Uncomment below if you want to process new subtitles:
-
-# try:
-#     import spacy
-#     try:
-#         nlp = spacy.load("en_core_web_trf")
-#         print("✅ spaCy model 'en_core_web_trf' loaded successfully!")
-#     except OSError:
-#         print("📥 Downloading spaCy model 'en_core_web_trf'... (this may take a few minutes on first run)")
-#         os.system("python -m spacy download en_core_web_trf")
-#         print("✅ spaCy model downloaded successfully!")
-# except Exception as e:
-#     print(f"⚠️ Warning: Could not load spaCy model: {e}")
-#     print("Character Network feature may not work properly.")
 
 print("ℹ️ Using pre-computed data from stubs/ folder (spaCy model not required)")
 
@@ -85,8 +68,10 @@ def get_character_network(subtitles_path, ner_path):
     if ner_path and not ('/' in ner_path or '\\' in ner_path):
         ner_path = str(STUBS_DIR / ner_path)
     
+    # This will either process subtitles with spaCy OR load existing NER data
     ner = NamedEntityRecognizer()
     ner_df = ner.get_ners(subtitles_path, ner_path)
+    
     character_network_generator = CharacterNetworkGenerator()
     relationship_df = character_network_generator.generate_character_network(ner_df)
     html = character_network_generator.draw_network_graph(relationship_df)

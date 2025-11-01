@@ -19,8 +19,12 @@ lxml>=4.9.0
 # Visualization
 pyvis>=0.3.2
 
-# NER & Text Processing (minimal - no heavy model)
+# NER & Text Processing
 spacy>=3.7.0
+
+# spaCy transformer model for Named Entity Recognition (needed for character network generation)
+# Install separately after installing requirements: python -m spacy download en_core_web_trf
+# This downloads the latest compatible version automatically
 
 # Google Gemini API
 google-generativeai>=0.3.0
