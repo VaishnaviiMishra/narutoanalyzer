@@ -8,15 +8,15 @@ services:
     buildCommand: pip install -r requirements.txt
     
     # Start command
-    startCommand: python app.py
+    startCommand: python3 app.py
     
     # Environment configuration
     envVars:
       - key: PYTHON_VERSION
         value: 3.11
       
-      - key: PORT
-        value: 10000  # Render's default, but will use assigned port
+      # Note: PORT is automatically set by Render, no need to define it here
+      # Your app.py reads it with: port = int(os.getenv("PORT", 7860))
       
       # Required: Gemini API Key for chatbot functionality
       # Set this in Render dashboard: Settings > Environment
