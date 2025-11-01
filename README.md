@@ -1,6 +1,5 @@
 ---
 title: Naruto TVanalyser
-emoji: spiral
 colorFrom: yellow
 colorTo: red
 sdk: gradio
