@@ -255,18 +255,27 @@ def main():
         /* Fix for Hugging Face Spaces embedding - ensure full scroll */
         .gradio-container {
             min-height: 100vh !important;
-            overflow-y: auto !important;
+            max-height: none !important;
+            overflow-y: visible !important;
+            height: auto !important;
         }
         
-        /* Ensure main app body is scrollable */
+        /* Ensure main app body is scrollable and starts at top */
         body {
             overflow-y: auto !important;
+            height: auto !important;
+        }
+        
+        /* Make main container expand to full content */
+        .main {
+            height: auto !important;
             min-height: 100vh !important;
         }
         
-        /* Fix iframe height issue on HF Spaces */
+        /* Ensure all sections are visible */
         .contain {
             max-width: 100% !important;
+            height: auto !important;
         }
     """
     with gr.Blocks(title="Naruto TV Analyzer", css=custom_css) as iface:
@@ -415,12 +424,11 @@ def main():
 
         create_footer() 
 
-        # Launch with proper height settings for Hugging Face Spaces
-        # Remove share=True (not needed on HF), set server settings
+        # Launch with proper settings for Hugging Face Spaces
         iface.launch(
             server_name="0.0.0.0",
-            height=1500,  # Ensure full app is visible
-            share=False   # Not needed on Hugging Face Spaces
+            share=False,  # Not needed on Hugging Face Spaces
+            inbrowser=False  # Don't auto-open browser on server
         )
 
 if __name__ == '__main__':
